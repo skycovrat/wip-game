@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://vyinsluaq7wt"]
+
+[ext_resource type="Script" uid="uid://b2p8lhkcymy1w" path="res://Scripts/player_castle.gd" id="1_ccqri"]
+[ext_resource type="Script" uid="uid://uclnymelextc" path="res://Scripts/health_component.gd" id="2_v8mp5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ccqri"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v8mp5"]
+
+[node name="PlayerCastle" type="CharacterBody3D" unique_id=545079881]
+script = ExtResource("1_ccqri")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=724642476]
+mesh = SubResource("BoxMesh_ccqri")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1847269570]
+script = ExtResource("2_v8mp5")
+metadata/_custom_type_script = "uid://uclnymelextc"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1582268686]
+shape = SubResource("BoxShape3D_v8mp5")

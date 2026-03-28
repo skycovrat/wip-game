@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="wip-game"
+run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*uid://bk0fdodyc5pnr"
+Map_Manager="*uid://b5x0uwpg2mmmt"
 
 [physics]
 

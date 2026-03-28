@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cj7r76m3xdq7s"]
+
+[ext_resource type="Script" uid="uid://dn84jvxhxnw64" path="res://Scripts/enemy.gd" id="1_hghv2"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1f0kj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_afpow"]
+
+[node name="enemy" type="CharacterBody3D" unique_id=250622314]
+script = ExtResource("1_hghv2")
+speed = null
+damage_to_castle = null
+health = null
+arrival_distance = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1375603377]
+mesh = SubResource("CapsuleMesh_1f0kj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1374167360]
+shape = SubResource("CapsuleShape3D_afpow")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=843823188]
