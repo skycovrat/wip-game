@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://bk0fdodyc5pnr"
 Map_Manager="*uid://b5x0uwpg2mmmt"
+AbilityManager="*uid://c2wnyvh7gott2"
 
 [physics]
 

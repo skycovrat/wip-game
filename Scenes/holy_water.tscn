@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bcu7sb37d4bxi"]
+
+[ext_resource type="Script" uid="uid://degf4x3nk27qa" path="res://Scripts/Abilities/Abilities/holy_water_puddle.gd" id="1_6pukh"]
+
+[node name="HolyWater" type="Node3D" unique_id=528239961]
+script = ExtResource("1_6pukh")

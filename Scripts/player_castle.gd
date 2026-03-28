@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 @export var passive_damage: int = 15      # Урон пассивной атаки
 @export var passive_cooldown: float = 1.0 # Раз в секунду бьем всех вокруг
-@export var passive_range: float = 8.0    # Радиус поражения
+@export var passive_range: float = 5.0    # Радиус поражения
 
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var area_3d: Area3D = $PassiveAttackArea

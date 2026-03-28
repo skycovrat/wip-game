@@ -7,9 +7,9 @@ signal mana_changed(current_mana: int, max_mana: int)
 signal castle_damaged(current_hp: int, max_hp: int)
 
 # Балансные параметры (будем менять здесь для тюнинга)
-@export var max_mana: int = 100
+@export var max_mana: int = 600
 @export var mana_regen_rate: float = 5.0  # единиц в секунду
-@export var starting_mana: int = 30
+@export var starting_mana: int = 300
 
 var current_mana: int:
 	set(value):
@@ -37,5 +37,6 @@ func _on_mana_regen_tick():
 func spend_mana(amount: int) -> bool:
 	if current_mana >= amount:
 		current_mana -= amount
+		print("Used ", amount, "mana, left: ", current_mana)
 		return true
 	return false

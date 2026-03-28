@@ -22,7 +22,8 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 script = ExtResource("1_jjgbg")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1375282108]
-transform = Transform3D(1, 0, 0, 0, 0.5718023, 0.8203915, 0, -0.8203915, 0.5718023, 0, 23.959051, 21.350567)
+transform = Transform3D(1, 0, 0, 0, 0.4810348, 0.8767016, 0, -0.8767016, 0.4810348, 0, 18.880527, 18.782467)
+fov = 91.6
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=765643644]
 environment = SubResource("Environment_7u77a")
@@ -39,6 +40,7 @@ script = ExtResource("3_8gbba")
 metadata/_custom_type_script = "uid://bk2i6xjx6qbv"
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1699274548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37355423, 0.2173233, -0.116874695)
 navigation_mesh = SubResource("NavigationMesh_8gbba")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D" unique_id=2053294243]

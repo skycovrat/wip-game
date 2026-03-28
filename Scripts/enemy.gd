@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 @export var speed: float = 4.0
 @export var damage_to_castle: int = 10
-@export var health: int = 30
+@export var health: int = 5
 @export var arrival_distance: float = 1.2  # Дистанция для атаки замка
 
 var target_castle: Node3D
