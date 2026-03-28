@@ -1,4 +1,4 @@
-# Enemy.gd (оптимизированная версия)
+# civilian.gd (оптимизированная версия)
 extends CharacterBody3D
 
 @export var speed: float = 4.0
@@ -13,7 +13,7 @@ var is_navigation_initialized: bool = false
 var is_moving: bool = true
 
 func _ready():
-	add_to_group("enemies")
+	add_to_group("civilians")
 	_setup_visuals()
 	call_deferred("_initialize_navigation")
 
@@ -31,7 +31,7 @@ func _setup_visuals():
 	
 	# Отладочная метка
 	debug_label = Label3D.new()
-	debug_label.text = "Enemy"
+	debug_label.text = "civilian"
 	debug_label.pixel_size = 0.08
 	debug_label.position = Vector3(0, 0.8, 0)
 	add_child(debug_label)
@@ -65,7 +65,7 @@ func _initialize_navigation():
 	
 	# Проверяем путь
 	var path = navigation_agent.get_current_navigation_path()
-	print("Enemy initialized, path points: ", path.size())
+	print("civilian initialized, path points: ", path.size())
 	if path.size() > 0:
 		print("First path point: ", path[0])
 		print("Target position: ", target_castle.global_position)
@@ -88,7 +88,7 @@ func _physics_process(delta):
 	
 	if distance_to_castle <= arrival_distance:
 		# Достигли замка - атакуем
-		_attack_castle()
+		_enter_castle()
 		return
 	
 	# Если NavigationAgent готов и есть путь
@@ -113,10 +113,11 @@ func _physics_process(delta):
 			navigation_agent.target_position = target_castle.global_position
 			debug_label.text = "Rebuilding..."
 
-func _attack_castle():
-	if target_castle and target_castle.has_method("take_damage"):
-		print("Enemy attacking castle! Damage: ", damage_to_castle)
-		target_castle.take_damage(damage_to_castle)
+func _enter_castle():
+	if target_castle and target_castle.has_method("accept_civilian"):
+		print("civilian entering the castle")
+		target_castle.accept_civilian()
+		#target_castle.take_damage(damage_to_castle)
 	queue_free()
 
 func take_damage(amount: int):
@@ -135,7 +136,7 @@ func take_damage(amount: int):
 		_die()
 
 func _die():
-	print("Enemy died at: ", global_position)
+	print("civilian died at: ", global_position)
 	queue_free()
 	
 func set_moving(moving: bool):
@@ -143,11 +144,11 @@ func set_moving(moving: bool):
 	if not moving:
 		velocity = Vector3.ZERO
 		move_and_slide()
-		print("Enemy movement stopped")
+		print("civilian movement stopped")
 
 # Добавь метод обновления навигации
 func update_navigation():
 	if navigation_agent and target_castle:
 		navigation_agent.target_position = target_castle.global_position
-		print("Enemy navigation updated")
+		print("civilian navigation updated")
 	

@@ -17,7 +17,7 @@ func _register_abilities():
 	var holy_water = preload("res://scripts/abilities/abilities/holy_water.gd").new()
 	
 	# Регистрируем
-	abilities["holy_wateer"] = holy_water
+	abilities["holy_water"] = holy_water
 	
 	# Настраиваем порядок на UI
 	ability_slots = ["holy_water", "lightning", "heal", "slow"]

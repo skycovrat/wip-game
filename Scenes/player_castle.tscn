@@ -10,6 +10,8 @@ albedo_color = Color(0.76361096, 0.11805489, 0.26525956, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v8mp5"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_eeqex"]
+
 [node name="PlayerCastle" type="CharacterBody3D" unique_id=545079881]
 script = ExtResource("1_ccqri")
 
@@ -23,3 +25,9 @@ metadata/_custom_type_script = "uid://uclnymelextc"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1582268686]
 shape = SubResource("BoxShape3D_v8mp5")
+disabled = true
+
+[node name="Area3D" type="Area3D" parent="." unique_id=101301009]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=51528796]
+shape = SubResource("BoxShape3D_eeqex")

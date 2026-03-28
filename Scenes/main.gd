@@ -31,7 +31,8 @@ func _ready():
 	GameManager.game_over.connect(_on_game_over)
 	
 	# Создаем визуальные границы (опционально)
-	_create_visual_boundaries()
+	
+	_show_position_preview()
 	_setup_abilities()
 
 func _create_visual_boundaries():
@@ -132,13 +133,15 @@ func _handle_mouse_click():
 			else:
 				# Для остальных способностей сразу используем
 				_use_ability_at(click_position)
-				_cancel_ability_selection()
+				#_cancel_ability_selection()
 		
 		AbilityState.AWAITING_DIRECTION:
 			# Для огнемётчика используем позицию и направление
 			var direction = _get_direction_from_mouse(temp_position)
 			_use_flamethrower_with_direction(temp_position, direction)
 			_cancel_ability_selection()
+			_show_position_preview()
+			
 
 func _use_ability_at(position: Vector3):
 	match current_ability:
@@ -186,7 +189,7 @@ func _show_position_preview():
 	var circle = MeshInstance3D.new()
 	circle.mesh = CylinderMesh.new()
 	(circle.mesh as CylinderMesh).top_radius = 1.0
-	(circle.mesh as CylinderMesh).bottom_radius = 1.0
+	(circle.mesh as CylinderMesh).bottom_radius = 3.0
 	(circle.mesh as CylinderMesh).height = 0.05
 	var mat = StandardMaterial3D.new()
 	mat.albedo_color = Color(0, 1, 0, 0.5)

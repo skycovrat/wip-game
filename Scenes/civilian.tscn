@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bqm40mulqx2fe"]
+
+[ext_resource type="Script" uid="uid://dxjr8e4nipgg3" path="res://Scripts/civilian.gd" id="1_g3mco"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_k232n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3mco"]
+albedo_color = Color(0.20813099, 0.5617743, 0.65278816, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g3mco"]
+
+[node name="Civilian" type="CharacterBody3D" unique_id=572598831]
+script = ExtResource("1_g3mco")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1520822166]
+mesh = SubResource("CapsuleMesh_k232n")
+surface_material_override/0 = SubResource("StandardMaterial3D_g3mco")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1914357163]
+shape = SubResource("CapsuleShape3D_g3mco")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1236898079]
