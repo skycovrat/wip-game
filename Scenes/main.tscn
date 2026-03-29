@@ -10,54 +10,105 @@
 
 [sub_resource type="Animation" id="Animation_jjvhh"]
 resource_name = "RESET"
-tracks/0/type = "position_3d"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array()
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(22.912882, 47.44066, 22.643925), Vector3(22.912882, 47.44066, 22.643925)]
+}
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath("../Camera3D2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 24.709938, 18.491655)]
+"values": [Vector3(-30.848436, 0.7219097, 25.87849)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Camera3D2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.18851301, 0.7491127, 7.584956e-09)]
+}
+
+[sub_resource type="Animation" id="Animation_6bp64"]
+resource_name = "intro_animation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Camera3D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(6.062863, 1),
+"update": 0,
+"values": [Vector3(-21.43959, 3.1499197, 26.9959), Vector3(-30.848436, 0.7219097, 25.87849)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Camera3D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.00999999, 3),
+"transitions": PackedFloat32Array(2.1435473, 1),
+"update": 0,
+"values": [Vector3(0.18851303, -0.67715293, 1.7915504e-08), Vector3(0.18851301, 0.7491127, 7.584956e-09)]
 }
 
 [sub_resource type="Animation" id="Animation_kry3j"]
 resource_name = "stage_1"
-tracks/0/type = "position_3d"
+tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath(".")
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array()
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
+tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 24.709938, 18.491655), Vector3(0, 33.626736, 26.725641)]
+"values": [Vector3(19.065844, 33.991035, 19.13465), Vector3(20.931519, 42.33379, 20.662561)]
 }
 
 [sub_resource type="Animation" id="Animation_21xkr"]
 resource_name = "stage_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(22.912882, 47.44066, 22.643925), Vector3(22.912882, 47.44066, 22.643925)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6bp64"]
 _data = {
 &"RESET": SubResource("Animation_jjvhh"),
+&"intro_animation": SubResource("Animation_6bp64"),
 &"stage_1": SubResource("Animation_kry3j"),
 &"stage_2": SubResource("Animation_21xkr")
 }
@@ -87,9 +138,14 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 [node name="Main" type="Node3D" unique_id=1424662665]
 script = ExtResource("1_jjgbg")
 
+[node name="Camera3D2" type="Camera3D" parent="." unique_id=827884670]
+transform = Transform3D(0.73229325, 0.12761635, 0.66892487, 7.4505793e-09, 0.982284, -0.18739846, -0.68098915, 0.13723065, 0.71932006, -30.848436, 0.7219097, 25.87849)
+visible = false
+fov = 31.5
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1375282108]
-transform = Transform3D(0.7071068, -0.6199216, 0.34014294, 0, 0.4810348, 0.87670153, -0.7071068, -0.6199216, 0.34014294, 24.102432, 89.91454, 51.231003)
-fov = 75.4
+transform = Transform3D(0.7071068, -0.6199216, 0.34014294, 0, 0.4810348, 0.87670153, -0.7071068, -0.6199216, 0.34014294, 22.912882, 47.44066, 22.643925)
+fov = 70.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D" unique_id=1466118747]
 active = false
@@ -131,7 +187,7 @@ boss_wave_interval = null
 metadata/_custom_type_script = "uid://bk2i6xjx6qbv"
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1699274548]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30717278, -0.42106962, -0.1211071)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3360138, -0.5, 0)
 navigation_mesh = SubResource("NavigationMesh_8gbba")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D" unique_id=2053294243]
@@ -154,19 +210,25 @@ autoplay = true
 transform = Transform3D(-0.92418647, 0, 0.3819415, 0, 1, 0, -0.3819415, 0, -0.92418647, -45.60851, 0.21799445, -50.893932)
 
 [node name="forest2" parent="." unique_id=102151175 instance=ExtResource("5_kry3j")]
-transform = Transform3D(0.8945839, 0, 0.4469009, 0, 1, 0, -0.4469009, 0, 0.8945839, -42.07517, 0.4359889, 40.50472)
+transform = Transform3D(0.9999515, 0, 0.00989607, 0, 1, 0, -0.00989607, 0, 0.9999515, -28.98228, 0.021499157, 73.16376)
+
+[node name="forest3" parent="." unique_id=1760353065 instance=ExtResource("5_kry3j")]
+transform = Transform3D(-0.5659748, 0, -0.8244236, 0, 1, 0, 0.8244236, 0, -0.5659748, -84.12009, 0.042998314, -2.578556)
+
+[node name="forest3" parent="forest3" unique_id=783709425 instance=ExtResource("5_kry3j")]
+transform = Transform3D(-0.5659748, 0, -0.8244236, 0, 1, 0, 0.8244236, 0, -0.5659748, 20.805878, 0.042998314, -37.64625)
 
 [node name="forest6" parent="." unique_id=960878405 instance=ExtResource("5_kry3j")]
-transform = Transform3D(0.90559924, 0, -0.4241362, 0, 1, 0, 0.4241362, 0, 0.90559924, 10.733311, 0.8719778, 61.987957)
+transform = Transform3D(0.64181185, 0, -0.7668631, 0, 1, 0, 0.7668631, 0, 0.64181185, 25.181808, 0.054973602, 53.587666)
 
 [node name="forest5" parent="." unique_id=736701923 instance=ExtResource("5_kry3j")]
-transform = Transform3D(-0.28988382, 0, -0.9570632, 0, 1, 0, 0.9570632, 0, -0.28988382, 57.809483, 1.3079667, 16.759682)
+transform = Transform3D(-0.050575197, 0, -0.9987216, 0, 1, 0, 0.9987216, 0, -0.050575197, 63.275253, 0.005856037, -14.556704)
+
+[node name="forest7" parent="." unique_id=175073243 instance=ExtResource("5_kry3j")]
+transform = Transform3D(-0.99189156, 0, 0.12711641, 0, 1, 0, -0.12711641, 0, -0.99189156, -4.8351374, -0.050220013, -93.16995)
 
 [node name="forest4" parent="." unique_id=770656622 instance=ExtResource("5_kry3j")]
-transform = Transform3D(-0.9887426, 0, 0.14963876, 0, 1, 0, -0.14963876, 0, -0.9887426, 109.32132, 1.7439556, 56.863274)
-
-[node name="forest3" parent="." unique_id=1659073288 instance=ExtResource("5_kry3j")]
-transform = Transform3D(0.6008814, 0, -0.79933906, 0, 1, 0, 0.79933906, 0, 0.6008814, -88.72453, 0.65398335, -2.5244331)
+transform = Transform3D(0.117121965, 0, -0.9931194, 0, 1, 0, 0.9931194, 0, 0.117121965, 42.067215, -0.025110006, -65.31874)
 
 [node name="HUD" parent="." unique_id=2135123236 instance=ExtResource("6_21xkr")]
 
