@@ -2,10 +2,10 @@
 extends Node
 class_name MapManager
 # Границы карты (прямоугольник)
-@export var map_left: float = -20.0
-@export var map_right: float = 20.0
-@export var map_top: float = -20.0    # Z координата (вперед-назад)
-@export var map_bottom: float = 20.0
+var map_left: float = -60.0
+var map_right: float = 60.0
+var map_top: float = -60.0    # Z координата (вперед-назад)
+var map_bottom: float = 60.0
 
 # Где находится замок (центр карты)
 var castle_position: Vector3 = Vector3.ZERO

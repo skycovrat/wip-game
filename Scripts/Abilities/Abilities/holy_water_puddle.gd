@@ -3,7 +3,7 @@ extends Node3D
 # Параметры лужи (меняй здесь для баланса)
 var duration: float = 5.0           # Сколько секунд существует
 var damage_per_second: int = 15     # Урон в секунду
-var radius: float = 3.0             # Радиус поражения
+var radius: float = 12.0             # Радиус поражения
 var tick_rate: float = 0.1          # Как часто наносить урон
 
 # Внутренние переменные
@@ -14,7 +14,7 @@ func _ready():
 	# Добавляем простой визуал - просто небольшая сфера для отладки
 	var simple_mesh = MeshInstance3D.new()
 	simple_mesh.mesh = BoxMesh.new()
-	simple_mesh.scale = Vector3(radius*2,0.4, radius*2)
+	simple_mesh.scale = Vector3(radius,0.3, radius)
 	
 	var material = StandardMaterial3D.new()
 	material.albedo_color = Color(0.114, 0.784, 0.843, 0.788)  # Полупрозрачный зеленый

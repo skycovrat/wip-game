@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cwar7brig4aji"]
+
+[ext_resource type="PackedScene" uid="uid://dmo1npd5kndtg" path="res://charch_anim.fbx" id="1_jwbnk"]
+[ext_resource type="PackedScene" uid="uid://dxsyjx7tpjr24" path="res://forest.fbx" id="2_ygupv"]
+[ext_resource type="PackedScene" uid="uid://sqh0nqryvljn" path="res://zemlya.fbx" id="3_evhba"]
+[ext_resource type="PackedScene" uid="uid://bfo1ukeht46aw" path="res://zemlya_anim.fbx" id="4_17cvn"]
+[ext_resource type="PackedScene" uid="uid://dkh7o2iukxdjd" path="res://stage_1.fbx" id="5_ifh66"]
+[ext_resource type="PackedScene" uid="uid://dvtbtooe6l45w" path="res://stage_2.fbx" id="6_aeo3b"]
+[ext_resource type="PackedScene" uid="uid://ce2rum8lolvvp" path="res://stage_3.fbx" id="7_worak"]
+
+[node name="Node3D" type="Node3D" unique_id=810316383]
+
+[node name="charch_anim" parent="." unique_id=3777332 instance=ExtResource("1_jwbnk")]
+
+[node name="charch" parent="charch_anim" index="0" unique_id=1490233088]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, -5.6881, 0)
+
+[node name="bell" parent="charch_anim/charch" index="0" unique_id=448804329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.790731e-05, -7.933639e-06, 0.0021599198)
+
+[node name="forest" parent="." unique_id=1734648859 instance=ExtResource("2_ygupv")]
+
+[node name="zemlya" parent="." unique_id=912795028 instance=ExtResource("3_evhba")]
+
+[node name="zemlya_anim" parent="." unique_id=1656735835 instance=ExtResource("4_17cvn")]
+
+[node name="stage_1" parent="." unique_id=1905799440 instance=ExtResource("5_ifh66")]
+
+[node name="stage_2" parent="." unique_id=1396932878 instance=ExtResource("6_aeo3b")]
+
+[node name="stage_3" parent="." unique_id=1912996612 instance=ExtResource("7_worak")]
+
+[editable path="charch_anim"]

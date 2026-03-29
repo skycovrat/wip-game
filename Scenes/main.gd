@@ -21,10 +21,6 @@ func _ready():
 	var map_manager = get_node("/root/Map_Manager")
 	if map_manager:
 		# Настраиваем границы карты в зависимости от визуального окружения
-		map_manager.map_left = -25.0
-		map_manager.map_right = 25.0
-		map_manager.map_top = -25.0
-		map_manager.map_bottom = 25.0
 		map_manager.castle_position = castle.global_position
 	
 	# Подключаем сигналы GameManager
@@ -167,8 +163,10 @@ func _get_mouse_ground_position() -> Vector3:
 	var query = PhysicsRayQueryParameters3D.create(from, to)
 	query.collision_mask = 1
 	var result = space_state.intersect_ray(query)
+	
 	if result.is_empty():
 		return Vector3.ZERO
+	result.position.y = 0
 	return result.position
 
 func _get_direction_from_mouse(position: Vector3) -> float:

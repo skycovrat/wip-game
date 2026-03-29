@@ -2,32 +2,208 @@
 
 [ext_resource type="Script" uid="uid://b2p8lhkcymy1w" path="res://Scripts/player_castle.gd" id="1_ccqri"]
 [ext_resource type="Script" uid="uid://uclnymelextc" path="res://Scripts/health_component.gd" id="2_v8mp5"]
+[ext_resource type="PackedScene" uid="uid://dmo1npd5kndtg" path="res://charch_anim.fbx" id="3_eeqex"]
+[ext_resource type="PackedScene" uid="uid://dkh7o2iukxdjd" path="res://stage_1.fbx" id="4_1oybr"]
+[ext_resource type="PackedScene" uid="uid://dvtbtooe6l45w" path="res://stage_2.fbx" id="5_fy1pg"]
+[ext_resource type="PackedScene" uid="uid://ce2rum8lolvvp" path="res://stage_3.fbx" id="6_4jblk"]
+[ext_resource type="PackedScene" uid="uid://bfo1ukeht46aw" path="res://zemlya_anim.fbx" id="7_fy1pg"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v8mp5"]
-albedo_color = Color(0.76361096, 0.11805489, 0.26525956, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ccqri"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_v8mp5"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_fy1pg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eeqex"]
 
+[sub_resource type="Animation" id="Animation_fy1pg"]
+resource_name = "Bell"
+length = 2.7333333
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("charch")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("charch/bell")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -5.790731e-05, -7.933639e-06, 0.112334706)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("charch/bell")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 2.636026e-08, 0.091196924, 1.3984982e-07, 0.99583286, 0.6666667, 1, -1.14986086e-07, 0.91142446, 2.312826e-08, 0.41146743, 1.4, 1, 2.6058222e-08, 0.0932413, 1.3974145e-07, 0.99564356, 2.7333333, 1, 2.6058222e-08, 0.0932413, 1.3974145e-07, 0.99564356)
+
+[sub_resource type="Animation" id="Animation_4jblk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../zemlya_anim:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jcm6y"]
+resource_name = "charch_stady_1"
+length = 0.6666667
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("charch")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -5.6881, 0, 0.06666667, 1, 0, -5.601318, 0, 0.13333334, 1, 0, -5.365766, 0, 0.2, 1, 0, -5.018637, 0, 0.26666668, 1, 0, -4.5971236, 0, 0.4, 1, 0, -3.6797118, 0, 0.46666667, 1, 0, -3.2581987, 0, 0.53333336, 1, 0, -2.9110694, 0, 0.6, 1, 0, -2.6755183, 0, 0.6666667, 1, 0, -2.5887356, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("charch/bell")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -5.790731e-05, -7.933639e-06, 0.0021599198)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("charch/bell")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_v4e47"]
+resource_name = "charch_stady_2"
+length = 0.6666667
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("charch")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -2.5497644, 0, 0.06666667, 1, 0, -2.4803307, 0, 0.13333334, 1, 0, -2.291868, 0, 0.2, 1, 0, -2.0141335, 0, 0.26666668, 1, 0, -1.6768842, 0, 0.4, 1, 0, -0.94287145, 0, 0.46666667, 1, 0, -0.6056222, 0, 0.53333336, 1, 0, -0.3278873, 0, 0.6, 1, 0, -0.13942456, 0, 0.6666667, 1, 0, -0.06999111, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("charch/bell")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -5.790731e-05, -7.933639e-06, 0.0021599198)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("charch/bell")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_lw25r"]
+resource_name = "charch_stady_3"
+length = 1.4
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("charch")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.1413256, 0, 0.06666667, 1, 0, -0.07498262, 0, 0.13333334, 1, 0, 0.13280812, 0, 0.2, 1, 0, 0.49685514, 0, 0.26666668, 1, 0, 1.034619, 0, 0.33333334, 1, 0, 1.7668984, 0, 0.4, 1, 0, 2.7187488, 0, 0.46666667, 1, 0, 3.9207368, 0, 0.53333336, 1, 0, 5.4106727, 0, 0.6, 1, 0, 7.2360463, 0, 0.6666667, 1, 0, 9.457491, 0, 0.73333335, 1, 0, 12.153684, 0, 0.8, 1, 0, 15.428167, 0, 0.8666667, 1, 0, 19.41768, 0, 0.93333334, 1, 0, 24.29774, 0, 0.96666664, 1, 0, 30.263298, 0, 1.0666667, 1, 0, 37.39879, 0, 1.1333333, 1, 0, 45.24463, 0, 1.2, 1, 0, 52.327152, 0, 1.2666667, 1, 0, 57.1703, 0, 1.3333334, 1, 0, 59.641724, 0, 1.4, 1, 0, 60.331757, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("charch/bell")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -5.790731e-05, -7.933639e-06, 0.0021599198)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("charch/bell")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("../zemlya_anim:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 60.33, 0)]
+}
+tracks/4/type = "position_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../zemlya_anim")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0, -0.1413256, 0, 0.06666667, 1, 0, -0.07498262, 0, 0.13333334, 1, 0, 0.13280812, 0, 0.2, 1, 0, 0.49685514, 0, 0.26666668, 1, 0, 1.034619, 0, 0.33333334, 1, 0, 1.7668984, 0, 0.4, 1, 0, 2.7187488, 0, 0.46666667, 1, 0, 3.9207368, 0, 0.53333336, 1, 0, 5.4106727, 0, 0.6, 1, 0, 7.2360463, 0, 0.6666667, 1, 0, 9.457491, 0, 0.73333335, 1, 0, 12.153684, 0, 0.8, 1, 0, 15.428167, 0, 0.8666667, 1, 0, 19.41768, 0, 0.93333334, 1, 0, 24.29774, 0, 0.96666664, 1, 0, 30.263298, 0, 1.0666667, 1, 0, 37.39879, 0, 1.1333333, 1, 0, 45.24463, 0, 1.2, 1, 0, 52.327152, 0, 1.2666667, 1, 0, 57.1703, 0, 1.3333334, 1, 0, 59.641724, 0, 1.4, 1, 0, 60.331757, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_75h1o"]
+_data = {
+&"Bell": SubResource("Animation_fy1pg"),
+&"RESET": SubResource("Animation_4jblk"),
+&"charch_stady_1": SubResource("Animation_jcm6y"),
+&"charch_stady_2": SubResource("Animation_v4e47"),
+&"charch_stady_3": SubResource("Animation_lw25r")
+}
+
 [node name="PlayerCastle" type="CharacterBody3D" unique_id=545079881]
 script = ExtResource("1_ccqri")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=724642476]
-material_override = SubResource("StandardMaterial3D_v8mp5")
-mesh = SubResource("BoxMesh_ccqri")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1847269570]
 script = ExtResource("2_v8mp5")
 metadata/_custom_type_script = "uid://uclnymelextc"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1582268686]
-shape = SubResource("BoxShape3D_v8mp5")
+transform = Transform3D(26, 0, 0, 0, 26, 0, 0, 0, 26, 0, 0, 0)
+shape = SubResource("SphereShape3D_fy1pg")
 disabled = true
 
 [node name="Area3D" type="Area3D" parent="." unique_id=101301009]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=51528796]
 shape = SubResource("BoxShape3D_eeqex")
+
+[node name="charch_anim" parent="." unique_id=177845916 instance=ExtResource("3_eeqex")]
+
+[node name="charch" parent="charch_anim" index="0" unique_id=1490233088]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, -5.6881, 0)
+
+[node name="bell" parent="charch_anim/charch" index="0" unique_id=448804329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.790731e-05, -7.933639e-06, 0.0021599198)
+
+[node name="AnimationPlayer" parent="charch_anim" index="1" unique_id=1472154469]
+libraries/ = SubResource("AnimationLibrary_75h1o")
+
+[node name="stage_1" parent="." unique_id=1905799440 instance=ExtResource("4_1oybr")]
+
+[node name="stage_2" parent="." unique_id=1396932878 instance=ExtResource("5_fy1pg")]
+visible = false
+
+[node name="stage_3" parent="." unique_id=1912996612 instance=ExtResource("6_4jblk")]
+visible = false
+
+[node name="zemlya_anim" parent="." unique_id=285873050 instance=ExtResource("7_fy1pg")]
+
+[editable path="charch_anim"]
+[editable path="stage_1"]

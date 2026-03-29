@@ -3,6 +3,61 @@
 [ext_resource type="Script" uid="uid://t83j3dwjk2nq" path="res://Scenes/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://vyinsluaq7wt" path="res://Scenes/player_castle.tscn" id="2_bo1nx"]
 [ext_resource type="Script" uid="uid://bk2i6xjx6qbv" path="res://Scripts/enemy_spawner.gd" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://sqh0nqryvljn" path="res://zemlya.fbx" id="4_jjvhh"]
+
+[sub_resource type="Animation" id="Animation_jjvhh"]
+resource_name = "RESET"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 24.709938, 18.491655)]
+}
+
+[sub_resource type="Animation" id="Animation_kry3j"]
+resource_name = "stage_1"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 24.709938, 18.491655), Vector3(0, 28.640072, 26.136995)]
+}
+
+[sub_resource type="Animation" id="Animation_21xkr"]
+resource_name = "stage_2"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6bp64"]
+_data = {
+&"RESET": SubResource("Animation_jjvhh"),
+&"stage_1": SubResource("Animation_kry3j"),
+&"stage_2": SubResource("Animation_21xkr")
+}
 
 [sub_resource type="Environment" id="Environment_7u77a"]
 
@@ -11,7 +66,7 @@
 [sub_resource type="Compositor" id="Compositor_bo1nx"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_8gbba"]
-vertices = PackedVector3Array(-102.111824, 0.5, -93.87726, -102.111824, 0.5, 93.87274, 102.138176, 0.5, 93.87274, 102.138176, 0.5, -93.87726)
+vertices = PackedVector3Array(-337.5319, 0.5, -436.38885, -337.5319, 0.5, 436.36115, 337.4681, 0.5, 436.36115, 337.4681, 0.5, -436.38885)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8gbba"]
@@ -22,8 +77,11 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 script = ExtResource("1_jjgbg")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1375282108]
-transform = Transform3D(1, 0, 0, 0, 0.4810348, 0.8767016, 0, -0.8767016, 0.4810348, 0, 18.880527, 18.782467)
-fov = 91.6
+transform = Transform3D(1, 0, 0, 0, 0.48103476, 0.87670153, 0, -0.87670153, 0.48103476, 0, 24.709938, 18.491655)
+fov = 96.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D" unique_id=1466118747]
+libraries/ = SubResource("AnimationLibrary_6bp64")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=765643644]
 environment = SubResource("Environment_7u77a")
@@ -31,7 +89,7 @@ camera_attributes = SubResource("CameraAttributesPractical_jjgbg")
 compositor = SubResource("Compositor_bo1nx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1919442384]
-transform = Transform3D(1, 0, 0, 0, 0.24146463, 0.97040963, 0, -0.97040963, 0.24146463, 0, 4.077274, -0.25274563)
+transform = Transform3D(1, 0, 0, 0, 0.24146463, 0.97040963, 0, -0.97040963, 0.24146463, 0, 172.19312, -0.25274563)
 
 [node name="PlayerCastle" parent="." unique_id=1418699478 instance=ExtResource("2_bo1nx")]
 
@@ -50,5 +108,10 @@ shape = SubResource("WorldBoundaryShape3D_8gbba")
 debug_color = Color(0.73059726, 0.39120156, 0.69431114, 0.41960785)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D" unique_id=734291081]
-transform = Transform3D(102.611824, 0, 0, 0, 1, 0, 0, 0, 94.37726, 0, 0, 0)
+transform = Transform3D(338.0319, 0, 0, 0, 0.9999994, 0, 0, 0, 436.88885, 0, 0, 0)
+visible = false
 mesh = SubResource("PlaneMesh_jjvhh")
+
+[node name="zemlya" parent="." unique_id=903034683 instance=ExtResource("4_jjvhh")]
+
+[editable path="zemlya"]

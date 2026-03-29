@@ -1,10 +1,10 @@
 # Enemy.gd (оптимизированная версия)
 extends CharacterBody3D
 
-@export var speed: float = 4.0
+@export var speed: float = 8.0
 @export var damage_to_castle: int = 10
 @export var health: int = 5
-@export var arrival_distance: float = 3.2  # Дистанция для атаки замка
+@export var arrival_distance: int  # Дистанция для атаки замка
 
 var target_castle: Node3D
 var navigation_agent: NavigationAgent3D
@@ -12,29 +12,24 @@ var debug_label: Label3D
 var is_navigation_initialized: bool = false
 var is_moving: bool = true
 
+@onready var girl_run: Node3D = $girl_run
+@onready var man_run: Node3D = $man_run
+
 func _ready():
+	arrival_distance = GameManager.castle_radius
 	add_to_group("enemies")
-	_setup_visuals()
 	call_deferred("_initialize_navigation")
 
-func _setup_visuals():
-	# Визуал врага
-	var mesh = MeshInstance3D.new()
-	mesh.mesh = SphereMesh.new()
-	(mesh.mesh as SphereMesh).radius = 0.4
-	(mesh.mesh as SphereMesh).height = 0.8
+func _setup_type(type: int) -> void:
+	if type == 0: # обычный
+		speed = 8.0
+		girl_run.visible = true
+		man_run.visible = false
+	elif type == 1: # speedстер
+		speed = 7.0
+		girl_run.visible = false
+		man_run.visible = true
 	
-	var material = StandardMaterial3D.new()
-	material.albedo_color = Color.DARK_RED
-	mesh.material_override = material
-	add_child(mesh)
-	
-	# Отладочная метка
-	debug_label = Label3D.new()
-	debug_label.text = "Enemy"
-	debug_label.pixel_size = 0.08
-	debug_label.position = Vector3(0, 0.8, 0)
-	add_child(debug_label)
 
 func _initialize_navigation():
 	target_castle = get_tree().get_first_node_in_group("castle")
@@ -61,7 +56,6 @@ func _initialize_navigation():
 	await get_tree().physics_frame
 	
 	is_navigation_initialized = true
-	debug_label.text = "Moving"
 	
 	# Проверяем путь
 	var path = navigation_agent.get_current_navigation_path()
@@ -104,9 +98,6 @@ func _physics_process(delta):
 		if direction.length() > 0.1:
 			var target_rotation = atan2(direction.x, direction.z)
 			rotation.y = target_rotation
-		
-		# Обновляем отладку
-		debug_label.text = "Dist: " + str(round(distance_to_castle))
 	else:
 		# Если нет пути, но враг еще не у замка - пробуем перестроить путь
 		if distance_to_castle > arrival_distance * 2:

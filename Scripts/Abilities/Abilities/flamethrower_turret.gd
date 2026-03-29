@@ -4,8 +4,8 @@ extends Node3D
 var duration: float = 8.0
 var damage_per_second: int = 20
 var fire_rate: float = 0.3
-@export var range: float = 10.0
-@export var cone_angle: float = 120.0  # Полный угол сектора
+@export var range: float = 20.0
+@export var cone_angle: float = 70.0  # Полный угол сектора
 
 # Внутренние переменные
 var elapsed_time: float = 0.0

@@ -5,12 +5,12 @@ extends Node
 signal game_over(victory: bool)
 signal mana_changed(current_mana: int, max_mana: int)
 signal castle_damaged(current_hp: int, max_hp: int)
-
 # Балансные параметры (будем менять здесь для тюнинга)
 @export var max_mana: int = 600
-@export var mana_regen_rate: float = 5.0  # единиц в секунду
+@export var mana_regen_rate: float = 10.0  # единиц в секунду
 @export var starting_mana: int = 300
-
+@onready var cur_wave:int = 0
+@onready var castle_radius:int = 14
 var current_mana: int:
 	set(value):
 		current_mana = clampi(value, 0, max_mana)
@@ -40,3 +40,21 @@ func spend_mana(amount: int) -> bool:
 		print("Used ", amount, "mana, left: ", current_mana)
 		return true
 	return false
+func change_wave(wave: int):
+	cur_wave = wave
+	if cur_wave == 1:
+		castle_radius = 14
+	elif cur_wave == 3:
+		castle_radius = 28
+	elif cur_wave == 5:
+		castle_radius = 40
+		
+func victory():
+	print("POBEDA URAAA")
+	GameManager.is_game_active = false
+	GameManager.game_over.emit(true)
+	
+	# Останавливаем спавн врагов
+	var spawners = get_tree().get_nodes_in_group("spawners")
+	for spawner in spawners:
+		spawner.queue_free()

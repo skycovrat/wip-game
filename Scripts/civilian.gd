@@ -4,7 +4,7 @@ extends CharacterBody3D
 @export var speed: float = 4.0
 @export var damage_to_castle: int = 10
 @export var health: int = 5
-@export var arrival_distance: float = 3.2  # Дистанция для атаки замка
+@export var arrival_distance: float = 14  # Дистанция для атаки замка
 
 var target_castle: Node3D
 var navigation_agent: NavigationAgent3D
@@ -31,6 +31,7 @@ func _setup_visuals():
 	
 	# Отладочная метка
 	debug_label = Label3D.new()
+	debug_label.visible = false
 	debug_label.text = "civilian"
 	debug_label.pixel_size = 0.08
 	debug_label.position = Vector3(0, 0.8, 0)

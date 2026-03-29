@@ -29,6 +29,9 @@ class_name EdgeSpawner
 @export var civilians_per_wave_base: int = 5
 @export var civilians_per_wave_scaling: float = 2.0
 
+
+@onready var player_castle: CharacterBody3D = $"../PlayerCastle"
+
 # Внутренние переменные
 var current_wave: int = 0
 var phases: Array = []
@@ -70,6 +73,7 @@ func _ready():
 	_start_next_wave()
 
 func _process(delta):
+	GameManager.change_wave(current_wave)
 	if not GameManager.is_game_active:
 		return
 	
@@ -128,7 +132,7 @@ func _start_next_wave():
 	print("=== Trading Phase Started ===")
 	print("Wave ", current_wave, " will start in ", time_between_waves, " seconds")
 	print("Civilians to save this wave: ", civilians_to_spawn_in_wave)
-	
+	player_castle._upgrade()
 	trading_phase_started.emit(time_between_waves)
 
 func _activate_wave():
@@ -200,13 +204,17 @@ func _try_spawn_enemy_batch():
 
 func _spawn_single_enemy():
 	var enemy = enemy_scene.instantiate()
+	enemy.scale = Vector3(4.0,4.0,4.0)
 	var spawn_pos = map_manager.get_random_edge_position()
+	
 	spawn_pos.x += randf_range(-1.0, 1.0)
 	spawn_pos.z += randf_range(-1.0, 1.0)
-	enemy.global_position = spawn_pos
+	enemy.global_position = spawn_pos	
+	
 	if enemy.has_method("set_target"):
 		enemy.set_target(map_manager.castle_position)
 	get_tree().current_scene.add_child(enemy)
+	enemy._setup_type(1)
 
 func _spawn_single_civ():
 	var civ = civilian_scene.instantiate()
