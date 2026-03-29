@@ -454,3 +454,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_sdvrx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Running(2)" unique_id=442385430]
 libraries/ = SubResource("AnimationLibrary_k6d47")
+autoplay = &"mixamo_com"
