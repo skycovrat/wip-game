@@ -86,10 +86,11 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 script = ExtResource("1_jjgbg")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1375282108]
-transform = Transform3D(0.7071068, -0.6199216, 0.34014294, 0, 0.4810348, 0.87670153, -0.7071068, -0.6199216, 0.34014294, 0, 24.709938, 18.491655)
+transform = Transform3D(0.7071068, -0.6199216, 0.34014294, 0, 0.4810348, 0.87670153, -0.7071068, -0.6199216, 0.34014294, 24.102432, 89.91454, 51.231003)
 fov = 75.4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D" unique_id=1466118747]
+active = false
 libraries/ = SubResource("AnimationLibrary_6bp64")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=765643644]
